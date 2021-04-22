@@ -61,6 +61,8 @@ namespace kassYazilim.Controllers
             {
                 Ogrenci result;
 
+
+
                 using (var db = _context)
                 {
                     result = db.ogrenci.Where(c => c.OgrenciId == id).FirstOrDefault();
