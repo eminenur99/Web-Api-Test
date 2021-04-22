@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> - denemeMVC</title>
+
+
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+</head>
+<body>
+
+    <div ng-app="appOdev" ng-controller="OdevController">
+
+        <div class="body-content">
+            <p class="divHead">Listele</p>
+            <table cellpadding="12" class="table table-bordered table-hover">
+                <tr>
+                    <td>
+                        <b>Odev Id</b>
+                    </td>
+                    <td>
+                        <b>Ödev Adı </b>
+                    </td>
+                    <td>
+                        <b>Başlangıç Tarihi  </b>
+                    </td>
+                    <td>
+                        <b>Başlangıç Tarihi </b>
+                    </td>
+                    <td>
+                        <b>Actions</b>
+                    </td>
+                </tr>
+                <tr ng-repeat="odv in odev">
+                    <td>
+                        {{odv.odevId}}
+                    </td>
+                    <td>
+                        {{odv.name}}
+                    </td>
+                    <td>
+                        {{odv.startDateTime}}
+                    </td>
+                    <td>
+                        {{odv.endDateTime}}
+                    </td>
+                    <td>
+                        <input type="button" class="btn btn-warning" value="Update" ng-click="UpdateEmp(odv)" />
+                        <input type="button" class="btn btn-danger" value="Delete" ng-click="DeleteEmp(odv)" />
+                    </td>
+                </tr>
+            </table>
+
+           <div class="form-horizontal" role="form">
+                <div class="container">
+                    <div class="row">
+                        <h2>
+                            <span id="spn"> </span>
+                        </h2>
+                    </div>
+
+
+                    <table>
+                        <tr>
+
+                            <td>
+                                <button type="button" class="btn" id="new" value="New" ng-click="clear()">
+                                    <span class="glyphicon glyphicon-plus"></span> Yeni Kayıt Oluştur
+                                </button>
+                                <br />
+                                <br />
+
+
+                                <table id="tblCRUD" class="table" width="500">
+                                    <tbody>
+                                     @*   <tr>
+                                            <td>
+                                                <span>Odev Id</span>
+                                            </td>
+                                            <td>
+                                                <input type="text" id="bno" required="" />
+                                            </td>
+                                        </tr> *@
+                                        <tr>
+                                            <td>
+                                                <span>Ödev Adı</span>
+                                            </td>
+                                            <td>
+                                                <input type="text" id="bname" required="" ng-model="name">
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Başlangıç Tarihi </span>
+                                            </td>
+                                            <td>
+                                                <input type="text" id="bauthor" required="" ng-model="startdate">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Bitiş Tarihi</span>
+                                            </td>
+                                            <td>
+                                                <input type="text" id="bauthor" required="" ng-model="enddate">
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <button type="button" class="btn-success" ng-click="InsertData('Ekle')" ng-if="saveStatus">
+                                                    <span class="glyphicon glyphicon-save"></span> Save
+                                                </button>
+                                                <button type="button" class="btn-success" ng-click="InsertData('Güncelle')" ng-if="!saveStatus">
+                                                    <span class="glyphicon glyphicon-save"></span> Update
+                                                </button>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+
+                            </td>
+                        </tr>
+
+                    </table>
+
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <script src="~/Script/angular.min.js"></script>
+
+    <script src="~/js/ControllerOdev.js"></script>
+
+</body>
+
+</html>

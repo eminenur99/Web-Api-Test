@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> - denemeMVC</title>
+
+
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+   
+</head>
+<body>
+    <div ng-app="app" ng-controller="OgrenciController">
+
+        <div class="body-content">
+            <p class="divHead">List of Employee</p>
+            <table cellpadding="12" class="table table-bordered table-hover">
+                <tr>
+                    <td>
+                        <b>Öğrenci Id</b>
+                    </td>
+                    <td>
+                        <b>Adı</b>
+                    </td>
+                    <td>
+                        <b>Soyadı </b>
+                    </td>
+                    <td>
+                        <b>Ödev Id</b>
+                    </td>
+                    <td>
+                        <b>Actions</b>
+                    </td>
+                </tr>
+                <tr ng-repeat="ogr in ogrenci"> 
+                    <td>
+                        {{ogr.ogrenciId}}
+                    </td>
+                    <td>
+                        {{ogr.firstName}}
+                    </td>
+                    <td>
+                        {{ogr.lastName}}
+                    </td>
+                    <td>
+                        {{ogr.odevId}}
+                    </td>
+                    <td>
+                        <input type="button" class="btn btn-warning" value="Update" ng-click="UpdateEmp(ogr)" />
+                        <input type="button" class="btn btn-danger" value="Delete" ng-click="DeleteEmp(ogr)" />
+                    </td>
+                </tr>
+            </table>
+            <div class="form-horizontal" role="form">
+                <div class="container">
+                    <div class="row">
+                        <h2>
+                            <span id="spn"> </span>
+                        </h2>
+                    </div>
+
+
+                    <table>
+                        <tr>
+
+                            <td>
+                                <button type="button" class="btn" id="new" value="New" ng-click="clear()">
+                                    <span class="glyphicon glyphicon-plus"></span> Yeni Kayıt Oluştur
+                                </button>
+                                <br />
+                                <br />
+
+
+                                <table id="tblCRUD" class="table" width="500">
+                                    <tbody>
+                                        @*
+                                        <tr>
+                                            <td>
+                                                <span>Öğrenci Id</span>
+                                            </td>
+                                            <td>
+                                                <input type="text" id="bno" required="" />
+                                            </td>
+                                        </tr> *@
+                                        <tr>
+                                            <td>
+                                                <span>Adı</span>
+                                            </td>
+                                            <td>
+                                                <input type="text" id="bname" required="" ng-model="firstname">
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Soyadı</span>
+                                            </td>
+                                            <td>
+                                                <input type="text" id="bauthor" required="" ng-model="lastname">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Ödev Id</span>
+                                            </td>
+                                            <td>
+                                                <input type="text" id="bauthor" required="" ng-model="odevid">
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <button type="button" class="btn-success" ng-click="InsertData('Ekle')" ng-if ="saveStatus">
+                                                    <span class="glyphicon glyphicon-save"></span> Save
+                                                </button>
+                                                <button type="button" class="btn-success" ng-click="InsertData('Güncelle')" ng-if ="!saveStatus">
+                                                    <span class="glyphicon glyphicon-save"></span> Update
+                                                </button>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+
+                            </td>
+                        </tr>
+
+                    </table>
+
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/Script/angular.min.js"></script>
+
+    
+    <script src="~/js/Controller.js"></script>
+  
+</body>
+
+</html>
