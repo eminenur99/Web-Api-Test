@@ -79,21 +79,13 @@ namespace kassYazilim.Controllers
                 {
                     result = db.ogrenci.Where(c => c.OgrenciId == id).FirstOrDefault();
 
-
-
                     result.FirstName = ogrenci.FirstName;
                     result.LastName = ogrenci.LastName;
                     result.OdevId = ogrenci.OdevId;
 
                     db.SaveChanges();
                 }
-
-
             }
-
-
-
-        
 
     }
 }
